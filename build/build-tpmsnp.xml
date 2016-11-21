@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project tpm">
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.jarfile" value="."/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.jarfile}/tpmsnp.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="gui.TetraploidMap"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="${dir.workspace}/res"/>
+            <fileset dir="${dir.workspace}/bin">
+		<exclude name="analyses/anova/*"/>
+		<exclude name="analyses/anova"/>
+		<exclude name="analyses/findgeno/*"/>
+		<exclude name="analyses/findgeno"/>
+		<exclude name="analyses/perm/*"/>
+		<exclude name="analyses/perm"/>
+		<exclude name="analyses/qtl/*"/>
+		<exclude name="analyses/qtl"/>
+		<exclude name="analyses/altqtl/*"/>
+		<exclude name="analyses/altqtl"/>
+		<!--<exclude name="analyses/order/LinkageAnalysis.class"/> -->
+		<exclude name="analyses/order/OrderSettingsDialog.class"/>
+		<exclude name="analyses/order/ProcessResults.class"/>
+		<exclude name="analyses/order/RunSimAnneal*"/>
+		<exclude name="analyses/order/SimSettingsDialog.class"/>
+		<exclude name="analyses/order/Custom.txt"/>
+		<exclude name="analyses/order/custom/*"/>
+		<exclude name="analyses/order/custom"/>
+		<exclude name="analyses/order/ripple/*"/>
+		<exclude name="analyses/order/ripple"/>
+		<exclude name="analyses/order/sim/*"/>
+		<exclude name="analyses/order/sim"/>
+		<exclude name="analyses/simmatch/*"/>
+		<exclude name="analyses/simmatch"/>
+		<!--exclude name="data/SimMatchData.class"/ -->
+		<!--<exclude name="data/AnovaResult.class"/> -->
+		<!--exclude name="gui/MarkerDetails.class"/ -->
+		<!--<exclude name="gui/AnovaResultsPanel.class"/> -->
+		<exclude name="gui/IndividualViewer.class"/>
+		<exclude name="gui/MarkerSummaryPanel.class"/>
+		<exclude name="gui/MarkerTableModel.class"/>
+		<exclude name="gui/SelectMarkers.class"/>
+		<exclude name="gui/SelectMarkersDialog.class"/>
+		<exclude name="gui/importer/Excel*.class"/>
+		<exclude name="gui/importer/ImportExcel*.class"/>
+		<exclude name="gui/importer/ImportTest.class"/>
+		<exclude name="gui/nav/AnovaNode.java"/>
+	</fileset>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.workspace}/lib/doe.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.workspace}/lib/jama.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.workspace}/lib/jcommon-1.0.23.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.workspace}/lib/jxl.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.workspace}/lib/pal.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.workspace}/lib/jfreechart-1.0.19.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.workspace}/lib/jung/jung-algorithms-2.0.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.workspace}/lib/jung/jung-api-2.0.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.workspace}/lib/jung/jung-visualization-2.0.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.workspace}/lib/jung/jung-graph-impl-2.0.1.jar"/>
+	<zipfileset excludes="META-INF/*.SF" src="${dir.workspace}/lib/jung/collections-generic-4.01.jar"/>
+        </jar>
+    </target>
+</project>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="TPM">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="TPM.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/doe.jar"/>
+        <pathelement location="lib/jama.jar"/>
+        <pathelement location="lib/jung/collections-generic-4.01.jar"/>
+        <pathelement location="lib/jung/jung-algorithms-2.0.1.jar"/>
+        <pathelement location="lib/jung/jung-api-2.0.1.jar"/>
+        <pathelement location="lib/jung/jung-graph-impl-2.0.1.jar"/>
+        <pathelement location="lib/jung/jung-visualization-2.0.1.jar"/>
+        <pathelement location="lib/jxl.jar"/>
+        <pathelement location="lib/pal.jar"/>
+        <pathelement location="lib/jcommon-1.0.23.jar"/>
+        <pathelement location="lib/jfreechart-1.0.19.jar"/>
+        <pathelement location="res"/>
+    </path>
+    <path id="run.TPM WITH NONSNP.classpath">
+        <pathelement location="res"/>
+        <path refid="TPM.classpath"/>
+        <pathelement location="bin"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="TPM.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="TPM WITH NONSNP">
+        <java classname="gui.TetraploidMap" failonerror="true" fork="yes">
+            <arg line="-nonsnp"/>
+            <classpath refid="run.TPM WITH NONSNP.classpath"/>
+        </java>
+    </target>
+	<target name="errorprone">
+      <delete dir="errorprone"/>
+      <mkdir dir="errorprone"/>
+      <!-- external compile (fork="yes") -->
+      <componentdef name="errorprone" classname="com.google.errorprone.ErrorProneExternalCompilerAdapter"
+         classpath="error_prone_ant-2.0.9.jar"/>
+      <javac destdir="build" fork="yes" includeantruntime="no">
+	  <src path="src"/>
+	  <classpath refid="TPM.classpath"/>
+        <errorprone/>
+      </javac>
+    </target>
+</project>
