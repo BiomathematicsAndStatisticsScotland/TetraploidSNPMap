@@ -12,3 +12,6 @@ it requires:
 * WIX (to create the MSI)
 * JDK
 
+It also requires an R installation with the following libraries. All these libraries must be installed within the main R library folder.
+
+Formula Hmisc MASS Matrix R6 RColorBrewer Rcpp  acepack base chron cluster colorspace data.table datasets digest fastcluster foreign gdata ggplot2 grDevices graphics grid gridExtra gtable gtools  htmltools htmlwidgets httpuv jsonlite knitr lattice latticeExtra magrittr  methods mice mime munsell nnet nnls plyr polynom princurve reshape rgl rpart scales shiny smacof splines stats survival tools utils weights xtable
