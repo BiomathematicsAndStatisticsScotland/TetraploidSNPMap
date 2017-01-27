@@ -84,17 +84,17 @@
 			</Directory>
 			
 			<Directory Id="rscripts" Name="r-scripts">
-				<Component Id="chromsimfunctions.r" Guid="4b11ddc7-e2c4-4fd4-beb0-70ede1485f28">
-					<File Id="chromsimfunctions.r" Source="$(var.BACKEND)\r-scripts\chromsimfunctions.r" KeyPath="yes" Checksum="yes"/>
+				<Component Id="chromsimfunctions.R" Guid="4b11ddc7-e2c4-4fd4-beb0-70ede1485f28">
+					<File Id="chromsimfunctions.R" Source="$(var.BACKEND)\r-scripts\chromsimfunctions.R" KeyPath="yes" Checksum="yes"/>
 				</Component>
-				<Component Id="General_estimation.r" Guid="156f775e-ae07-404b-b028-b46f2f5e8f4b">
-					<File Id="General_estimation.r" Source="$(var.BACKEND)\r-scripts\General_estimation.r" KeyPath="yes" Checksum="yes"/>
+				<Component Id="General_estimation.R" Guid="156f775e-ae07-404b-b028-b46f2f5e8f4b">
+					<File Id="General_estimation.R" Source="$(var.BACKEND)\r-scripts\General_estimation.R" KeyPath="yes" Checksum="yes"/>
 				</Component>
-				<Component Id="threeD.r" Guid="34e862f5-fd00-4bd7-820c-30e4e91e7992">
-					<File Id="threeD.r" Source="$(var.BACKEND)\r-scripts\threeD.r" KeyPath="yes" Checksum="yes"/>
+				<Component Id="threeD.R" Guid="34e862f5-fd00-4bd7-820c-30e4e91e7992">
+					<File Id="threeD.R" Source="$(var.BACKEND)\r-scripts\threeD.R" KeyPath="yes" Checksum="yes"/>
 				</Component>
-				<Component Id="cluster.r" Guid="a96155db-a49b-492c-a54e-3481492e66ab">
-					<File Id="cluster.r" Source="$(var.BACKEND)\r-scripts\cluster.r" KeyPath="yes" Checksum="yes"/>
+				<Component Id="cluster.R" Guid="a96155db-a49b-492c-a54e-3481492e66ab">
+					<File Id="cluster.R" Source="$(var.BACKEND)\r-scripts\cluster.R" KeyPath="yes" Checksum="yes"/>
 				</Component>
 			</Directory>
 		</Directory>
@@ -163,10 +163,10 @@
 	</ComponentGroup>
 	
 	<ComponentGroup Id="rscriptscgr">
-	<ComponentRef Id="chromsimfunctions.r" />
-	<ComponentRef Id="General_estimation.r" />
-	<ComponentRef Id="threeD.r" />
-	<ComponentRef Id="cluster.r" />
+	<ComponentRef Id="chromsimfunctions.R" />
+	<ComponentRef Id="General_estimation.R" />
+	<ComponentRef Id="threeD.R" />
+	<ComponentRef Id="cluster.R" />
 	</ComponentGroup>
 	<ComponentGroup Id="binariescgr">
 	<ComponentRef Id="phasev6_noimsl.exe" />

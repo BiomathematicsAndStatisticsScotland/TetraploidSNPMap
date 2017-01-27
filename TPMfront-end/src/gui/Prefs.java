@@ -56,6 +56,11 @@ public class Prefs extends Preferences {
 	public static String tools_rscript = System.getProperty("user.dir") + File.separator
 			+ "lib\\R\\bin\\x64\\Rscript.exe";
 
+			
+	public static String[] rlibs_env = {"R_LIBS="+System.getProperty("user.dir") + File.separator 
+			+ "lib\\R\\library", "R_LIBS_USER="+System.getProperty("user.dir") + File.separator 
+			+ "lib\\R\\library"};
+	
 	// SNP BINARIES:
 
 	// recalc chisig
@@ -173,6 +178,7 @@ public class Prefs extends Preferences {
 	private String os;
 	private String tmpdir;
 	private String arch;
+	
 
 	/** Prefs().
 	 * 

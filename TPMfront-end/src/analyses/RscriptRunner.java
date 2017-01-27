@@ -57,7 +57,8 @@ public abstract class RscriptRunner extends FortranRunner {
 		try {
 			proc = Runtime.getRuntime().exec(
 					Prefs.tools_rscript + " --vanilla " + scriptname + "  " 
-						+ args, null, 
+						+ args,
+					Prefs.rlibs_env,
 					new File(Prefs.tools_scratch));
 			new RscriptCatcher(proc.getInputStream());
 			RscriptCatcher rsc = new RscriptCatcher(proc.getErrorStream());
