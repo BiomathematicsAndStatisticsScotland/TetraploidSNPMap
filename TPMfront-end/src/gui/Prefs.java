@@ -61,6 +61,11 @@ public class Prefs extends Preferences {
 			+ "lib\\R\\library", "R_LIBS_USER="+System.getProperty("user.dir") + File.separator 
 			+ "lib\\R\\library"};
 	
+	// User Manual
+	
+	public static String usermanual = System.getProperty("user.dir") + File.separator
+			+ "docdata\\TetraploidSNPmap users manual.pdf";
+			
 	// SNP BINARIES:
 
 	// recalc chisig

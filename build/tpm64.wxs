@@ -4,24 +4,21 @@
   <Product Id="59c9ed92-44ce-406d-8030-26aaabf64be7" 
 	Language="1033" 
 	Manufacturer="BioSS" 
-	Name="TetraploidMap SNP" 
+	Name="TetraploidSNPmap" 
 	UpgradeCode="7f512510-083d-4ea1-8673-f8da1005f37e" 
 	Version="$(var.VERSION)">
 	
     <Package Compressed="yes" 
-			 Description="TetraploidMap SNP" 
+			 Description="TetraploidSNPmap" 
 			 InstallerVersion="200" 
 			 Languages="1033"/>
     <Media Cabinet="media1.cab" EmbedCab="yes" Id="1"/>
     <Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLLOCATION" Name="TetraploidMap SNP 64bit" />
-			</Directory>
-			<Directory Id="PersonalFolder">
-				<Directory Id="DOCDATA" Name="TetraploidMap Data" />
+				<Directory Id="INSTALLLOCATION" Name="TetraploidSNPmap 64bit" />
 			</Directory>
 			<Directory Id="ProgramMenuFolder" Name="ProgramMenuFolder">
-				<Directory Id="TPMProgramMenuFolder" Name="TetraploidMap SNP 64bit" />
+				<Directory Id="TPMProgramMenuFolder" Name="TetraploidSNPmap 64bit" />
 			</Directory>
     </Directory>
 	
@@ -33,6 +30,8 @@
 		<ComponentRef Id="tpmsnp.exe"/>	
 		<ComponentRef Id="tpmsnp.jar"/>	
 		<ComponentRef Id="ApplicationShortcut" />
+		<ComponentRef Id="ManualShortcut" />
+
     </Feature>
 	
 	
@@ -97,49 +96,48 @@
 					<File Id="cluster.R" Source="$(var.BACKEND)\r-scripts\cluster.R" KeyPath="yes" Checksum="yes"/>
 				</Component>
 			</Directory>
+			
+		</Directory>
+		<Directory Id="docdata" Name="docdata">
+			<Component Id="theta5332.loc" Guid="d2bb3d6b-3ac9-465b-ade5-3b7027fdf11b">
+				<File Id="theta5332.loc" Source="$(var.DOCDATA)\theta5332.loc" KeyPath="yes" Checksum="yes"/>
+			</Component>
+			<Component Id="Oct_LGV.SNPloc" Guid="21ec7840-04f1-46a4-9162-2ee9fc4126cd">
+				<File Id="Oct_LGV.SNPloc" Source="$(var.DOCDATA)\Oct_LGV.SNPloc" KeyPath="yes" Checksum="yes"/>
+			</Component>
+			<Component Id="Oct_LGV.map" Guid="dc3a4cff-2b5e-4280-88c3-fbd8e7ee2549">
+				<File Id="Oct_LGV.map" Source="$(var.DOCDATA)\Oct_LGV.map" KeyPath="yes" Checksum="yes"/>
+			</Component>
+			<Component Id="TetraploidSNPmap_users_manual.pdf" Guid="718a9175-8df2-48fc-a222-87750638e866">
+				<File Id="TetraploidSNPmap_users_manual.pdf" Source="$(var.DOCDATA)\TetraploidSNPmap users manual.pdf" KeyPath="yes" Checksum="yes"/>
+			</Component>
+			<Component Id="demo.qua" Guid="912b9997-0271-4a45-be09-cd437747a256">
+				<File Id="demo.qua" Source="$(var.DOCDATA)\demo.qua" KeyPath="yes" Checksum="yes"/>
+			</Component>
+			<Component Id="TPMLicense.rtf" Guid="d0445036-943c-4019-b91f-d121134759d1">
+				<File Id="TPMLicense.rtf" Source="$(var.DOCDATA)\TPMLicense.rtf" KeyPath="yes" Checksum="yes"/>
+			</Component>
 		</Directory>
 	</DirectoryRef>
 
-	<DirectoryRef Id="DOCDATA">
-		<Component Id="theta5332.loc" Guid="d2bb3d6b-3ac9-465b-ade5-3b7027fdf11b">
-			<File Id="theta5332.loc" Source="$(var.DOCDATA)\theta5332.loc" KeyPath="no" Checksum="yes"/>
-			<RegistryValue Root="HKCU" Key="Software\BioSS\TPMSNP" Name="theta5332.loc" Type="integer" Value="1" KeyPath="yes"/>
-			<RemoveFolder Id="DOCDATA" On="uninstall" />
-		</Component>
-		<Component Id="Oct_LGV.SNPloc" Guid="21ec7840-04f1-46a4-9162-2ee9fc4126cd">
-			<File Id="Oct_LGV.SNPloc" Source="$(var.DOCDATA)\Oct_LGV.SNPloc" KeyPath="no" Checksum="yes"/>
-			<RegistryValue Root="HKCU" Key="Software\BioSS\TPMSNP" Name="Oct_LGV.SNPloc" Type="integer" Value="1" KeyPath="yes"/>
-		</Component>
-		<Component Id="Oct_LGV.map" Guid="dc3a4cff-2b5e-4280-88c3-fbd8e7ee2549">
-			<File Id="Oct_LGV.map" Source="$(var.DOCDATA)\Oct_LGV.map" KeyPath="no" Checksum="yes"/>
-			<RegistryValue Root="HKCU" Key="Software\BioSS\TPMSNP" Name="Oct_LGV.map" Type="integer" Value="1" KeyPath="yes"/>
-		</Component>
-		<Component Id="TetraploidSNPmap_users_manual.pdf" Guid="718a9175-8df2-48fc-a222-87750638e866">
-			<File Id="TetraploidSNPmap_users_manual.pdf" Source="$(var.DOCDATA)\TetraploidSNPmap users manual.pdf" KeyPath="no" Checksum="yes"/>
-			<RegistryValue Root="HKCU" Key="Software\BioSS\TPMSNP" Name="TetraploidSNPmap users manual.pdf" Type="integer" Value="1" KeyPath="yes"/>
-		</Component>
-		<Component Id="demo.qua" Guid="912b9997-0271-4a45-be09-cd437747a256">
-			<File Id="demo.qua" Source="$(var.DOCDATA)\demo.qua" KeyPath="no" Checksum="yes"/>
-			<RegistryValue Root="HKCU" Key="Software\BioSS\TPMSNP" Name="demo.qua" Type="integer" Value="1" KeyPath="yes"/>
-		</Component>
-		<Component Id="TPMLicense.rtf" Guid="d0445036-943c-4019-b91f-d121134759d1">
-			<File Id="TPMLicense.rtf" Source="$(var.DOCDATA)\TPMLicense.rtf" KeyPath="no" Checksum="yes"/>
-			<RegistryValue Root="HKCU" Key="Software\BioSS\TPMSNP" Name="TPMLicense.rtf" Type="integer" Value="1" KeyPath="yes"/>
-		</Component>
-	</DirectoryRef>
 	
 	<!-- start menu shortcuts for package -->
 	<!--<DirectoryRef Id="ApplicationProgramsFolder">-->
 	<DirectoryRef Id="TPMProgramMenuFolder">
 		<Component Id="ApplicationShortcut" Guid="a72d12e8-0922-44da-b0c7-fddb75a65747">
-			<RegistryValue Root="HKCU" Key="Software\BioSS\TPMSNP" Name="ShortcutsInstalled" Type="integer" Value="1" KeyPath="yes"/>
+			<RegistryValue Root="HKCU" Key="Software\BioSS\TPMSNP" Name="AppShortcutInstalled" Type="integer" Value="1" KeyPath="yes"/>
 			<Shortcut Id="TPMShortcut"
-					Name="TPM (snp)"
-					Description="TPM (SNP)"
+					Name="TPMSNP"
+					Description="TPMSNP"
 					Target="[INSTALLLOCATION]tpmsnp.exe" />	
-			<RemoveFolder Id="TPMProgramMenuFolder" On="uninstall" />
-			<!--<RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>-->
-			
+		<RemoveFolder Id="TPMProgramMenuFolder" On="uninstall" />
+		</Component>
+		<Component Id="ManualShortcut" Guid="890fce00-f236-4f5e-b350-ffe4c4784b23">
+			<RegistryValue Root="HKCU" Key="Software\BioSS\TPMSNP" Name="ManShortcutInstalled" Type="integer" Value="1" KeyPath="yes"/>
+			<Shortcut Id="TPMManualShortcut"
+					Name="TPMSNP User Manual"
+					Description="TPMSNP User Manual"
+					Target="[INSTALLLOCATION]\docdata\TetraploidSNPmap users manual.pdf" />	
 		</Component>
 	</DirectoryRef>
 	<!--

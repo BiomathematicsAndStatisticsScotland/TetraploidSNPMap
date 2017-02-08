@@ -22,6 +22,7 @@ package gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -537,8 +538,20 @@ public class AppFrameMenuBar extends JMenuBar {
 				doe.MsgBox.msg(msg, doe.MsgBox.INF);
 			}
 		});
+		JMenuItem mHelpManual = new JMenuItem("User manual (pdf)");
+		mHelpManual.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//File file = new File(Prefs.usermanual);
+				try {
+					Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + Prefs.usermanual);
+				} catch (IOException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
 
 		mHelp.add(mHelpAbout);
+		mHelp.add(mHelpManual);
 
 		add(mHelp);
 	}
