@@ -156,6 +156,7 @@ public class Prefs extends Preferences {
 	public static int gui_mSize = 12;
 
 	public static int markername_maxlen = 20;
+	public static int traitname_maxlen = 20;
 	public static int nonsnpmarkername_maxlen = 20;
 
 	public static boolean gui_select_on_type; // Test for marker type

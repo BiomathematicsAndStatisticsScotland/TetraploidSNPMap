@@ -23,6 +23,8 @@ package data;
 import java.io.Serializable;
 import java.util.Vector;
 
+import gui.Prefs;
+
 public class TraitFile implements Serializable
 {
 	static final long serialVersionUID = 2675383049059248499L;
@@ -35,8 +37,12 @@ public class TraitFile implements Serializable
 	{
 	}
 	
-	public void addName(String name)
-		{ names.add(name); }
+	public void addName(String name) throws CreationException {
+		if(name.length() > Prefs.traitname_maxlen){
+			throw new CreationException(CreationException.TRAITNAME_TOO_LONG);
+		}
+		names.add(name);
+	}
 	
 	public void addRow(float[] row)
 		{ rows.add(row); }

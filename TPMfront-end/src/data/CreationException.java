@@ -37,6 +37,7 @@ public class CreationException extends Exception {
 	public static int NO_ALLELES = 7;
 	public static int TOO_MANY_ALLELES = 8;
 	public static int NOT_FOUND = 9;
+	public static int TRAITNAME_TOO_LONG = 10;
 
 	private int exception;
 	private String additional;
@@ -63,6 +64,10 @@ public class CreationException extends Exception {
 		if (exception == NAME_TOO_LONG) {
 			return "At least one or more of the markers within the dataset had " + "a name longer than "
 					+ Prefs.markername_maxlen + " characters.";
+
+		} else if (exception == TRAITNAME_TOO_LONG) {
+			return "At least one or more of the traits within the trait file had " + "a name longer than "
+					+ Prefs.traitname_maxlen + " characters.";
 
 		} else if (exception == TOO_MANY_LOCI) {
 			return "The dataset contains more than 800 loci which is more than "
